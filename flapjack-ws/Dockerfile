@@ -1,4 +1,4 @@
-FROM cropgeeks/tomcat
+FROM cropgeeks/tomcat:8-jre8
 
 RUN apt-get update
 RUN apt-get install -y r-base
