@@ -9,6 +9,6 @@ RUN yum install -y bzip2 && \
     /conda/bin/conda config --add channels conda-forge && \
     /conda/bin/conda config --add channels bioconda && \
     /conda/bin/conda install r blast -y && \
-	echo "export PATH=/conda/bin/:$PATH" >> /etc/profile.d/conda.sh
+	echo "export PATH=/conda/bin/:\$PATH" >> /etc/sysconfig/httpd
 
 RUN yum install -y glibc.i686
