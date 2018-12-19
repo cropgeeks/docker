@@ -1,7 +1,7 @@
 FROM centos/httpd
 
 COPY svn.repo /etc/yum.repos.d/svn.repo
-RUN yum install -y subversion mod_dav_svn
+RUN yum update -y && yum install -y subversion mod_dav_svn
 
 RUN rm -rf /etc/httpd/conf.d/subversion.conf
 
