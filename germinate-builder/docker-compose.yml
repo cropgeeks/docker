@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  germinatebuilder:
+    image: cropgeeks/germinate-builder
+    environment:
+      - G8_DEPLOY_NAME=germinate-template
+      - GK_DEPLOY_NAME=germinate-gatekeeper
+      - INSTANCE_FOLDER=instance-stuff/germinate-template
+      - TOMCAT_URL=
+      - TOMCAT_USERNAME=tomcat
+      - TOMCAT_PASSWORD=tomcat
+      - MYSQL_HOST=
+      - MYSQL_PORT=
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=mysqlrootpassword
+    volumes:
+      - type: bind
+        source: ./instance-stuff
+        target: /opt/germinate/instance-stuff
+      - type: bind
+        source: ./config.properties
+        target: /opt/gatekeeper/config.properties
+    restart: "no"
+    container_name: germinate-builder
+    network_mode: host
