@@ -1,6 +1,16 @@
 FROM centos/httpd
 
-RUN yum update -y && \
-	yum install -y epel-release && \	
-	yum install -y mod_ssl certbot && \
-	yum clean all
+FROM centos:8
+
+RUN yum -y --setopt=tsflags=nodocs update && \
+    yum -y --setopt=tsflags=nodocs install httpd && \
+	yum -y install mod_ssl && \
+    yum clean all
+
+EXPOSE 80
+
+# Simple startup script to avoid some issues observed with container restart
+ADD run-httpd.sh /run-httpd.sh
+RUN chmod -v +x /run-httpd.sh
+
+CMD ["/run-httpd.sh"]
