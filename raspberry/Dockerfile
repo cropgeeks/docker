@@ -5,9 +5,10 @@ RUN yum update -y && \
         yum groupinstall -y "Development Tools" && \
         yum install -y sudo perl-GD inkscape glibc.i686 R
 
-RUN yum install -y bzip2 && \
-        curl -o /tmp/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
-        sh /tmp/miniconda.sh -b -p /conda/ -f && \
+RUN yum install -y bzip2 wget && \
+        wget -O /tmp/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+        chmod 755 /tmp/miniconda.sh && \
+        ./tmp/miniconda.sh -b -p /conda/ -f && \
         /conda/bin/conda config --add channels R && \
         /conda/bin/conda config --add channels conda-forge && \
         /conda/bin/conda config --add channels bioconda && \
