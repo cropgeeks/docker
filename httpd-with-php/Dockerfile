@@ -5,3 +5,5 @@ RUN yum update -y && \
 	yum-config-manager --enable remi-php72 && \
 	yum install -y php php-xml php-mysql php-gd php-mbstring && \
 	yum clean all
+
+yum install php-pecl-zip
