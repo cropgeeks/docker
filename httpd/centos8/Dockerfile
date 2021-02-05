@@ -2,6 +2,7 @@ FROM centos:8
 
 RUN yum -y --setopt=tsflags=nodocs update && \
     yum -y --setopt=tsflags=nodocs install httpd && \
+	yum -y --setopt=tsflags=nodocs install perl-CGI && \
 	yum clean all
 
 EXPOSE 80
