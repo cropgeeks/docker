@@ -1,8 +1,9 @@
 name: Docker
 
+# 03:30 every Sunday
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '30 03 * * 0'  
 
 jobs:
   build:
@@ -44,15 +45,6 @@ jobs:
           push: true
           tags: cropgeeks/httpd-tls:centos8
 
-      # httpd-tls/rocky8
-      - name: build/push (httpd-tls/rocky8)
-        uses: docker/build-push-action@v2
-        with:
-          context: httpd-tls/rocky8
-          platforms: linux/amd64
-          push: true
-          tags: cropgeeks/httpd-tls:rocky8
-
       # httpd/centos8
       - name: build/push (httpd:centos8)
         uses: docker/build-push-action@v2
@@ -62,7 +54,7 @@ jobs:
           push: true
           tags: cropgeeks/httpd:centos8
 
-      # httpd-tls/rocky8
+      # httpd/rocky8
       - name: build/push (httpd:rocky8)
         uses: docker/build-push-action@v2
         with:
