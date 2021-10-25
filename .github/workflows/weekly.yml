@@ -1,4 +1,4 @@
-name: Docker
+name: Docker (Weekly)
 
 # 03:30 every Sunday
 on:

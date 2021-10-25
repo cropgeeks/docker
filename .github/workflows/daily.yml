@@ -1,4 +1,4 @@
-name: Docker
+name: Docker (Daily)
 
 # 03:30 daily
 on:
