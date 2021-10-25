@@ -25,10 +25,48 @@ jobs:
 
       # Build and push Docker image with Buildx
       # https://github.com/docker/build-push-action
-      - name: Build and push Docker image
+
+      # httpd-tls/centos7
+      - name: build/push (httpd-tls/centos7)
+        uses: docker/build-push-action@v2
+        with:
+          context: httpd-tls/centos7
+          platforms: linux/amd64
+          push: true
+          tags: cropgeeks/httpd-tls:centos7
+      
+      # httpd-tls/centos8
+      - name: build/push (httpd-tls/centos8)
         uses: docker/build-push-action@v2
         with:
           context: httpd-tls/centos8
           platforms: linux/amd64
           push: true
           tags: cropgeeks/httpd-tls:centos8
+
+      # httpd-tls/rocky8
+      - name: build/push (httpd-tls/rocky8)
+        uses: docker/build-push-action@v2
+        with:
+          context: httpd-tls/rocky8
+          platforms: linux/amd64
+          push: true
+          tags: cropgeeks/httpd-tls:rocky8
+
+      # httpd/centos8
+      - name: build/push (httpd:centos8)
+        uses: docker/build-push-action@v2
+        with:
+          context: httpd/centos8
+          platforms: linux/amd64
+          push: true
+          tags: cropgeeks/httpd:centos8
+
+      # httpd-tls/rocky8
+      - name: build/push (httpd:rocky8)
+        uses: docker/build-push-action@v2
+        with:
+          context: httpd/rocky8
+          platforms: linux/amd64
+          push: true
+          tags: cropgeeks/httpd:rocky8
