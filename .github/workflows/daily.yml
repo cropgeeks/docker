@@ -1,0 +1,38 @@
+name: Docker
+
+# 03:30 daily
+on:
+  schedule:
+    - cron: '30 03 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log into Dockerhub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # Build and push Docker image with Buildx
+      # https://github.com/docker/build-push-action
+
+      # httpd-tls/rocky8
+      - name: build/push (httpd-tls/rocky8)
+        uses: docker/build-push-action@v2
+        with:
+          context: httpd-tls/rocky8
+          platforms: linux/amd64
+          push: true
+          tags: cropgeeks/httpd-tls:rocky8
+      
