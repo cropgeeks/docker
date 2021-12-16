@@ -1,4 +1,4 @@
-FROM rockylinux/rockylinux:8
+FROM rockylinux:8
 
 RUN yum -y --setopt=tsflags=nodocs update && \
     yum -y --setopt=tsflags=nodocs install httpd perl-CGI && \
