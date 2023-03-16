@@ -17,11 +17,11 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Log into Dockerhub
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -31,7 +31,7 @@ jobs:
 
       # httpd-tls/rocky8
       - name: build/push (httpd-tls/rocky8)
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: httpd-tls/rocky8
           platforms: linux/amd64
