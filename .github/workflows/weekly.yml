@@ -17,50 +17,51 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Log into Dockerhub
+      - name: Log into GHCR
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       # Build and push Docker image with Buildx
       # https://github.com/docker/build-push-action
 
       # httpd/rocky8
       - name: build/push (httpd:rocky8)
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: httpd/rocky8
           platforms: linux/amd64
           push: true
-          tags: cropgeeks/httpd:rocky8
+          tags: ghcr.io/cropgeeks/httpd:rocky8
       
       # tomcat/8-jre8
       - name: build/push (tomcat/8-jre8)
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: tomcat/8-jre8
           platforms: linux/amd64
           push: true
-          tags: cropgeeks/tomcat:8-jre8
+          tags: ghcr.io/cropgeeks/tomcat:8-jre8
 
       # tomcat/9-jdk11
       - name: build/push (tomcat/9-jdk11)
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: tomcat/9-jdk11
           platforms: linux/amd64
           push: true
-          tags: cropgeeks/tomcat:9-jdk11
+          tags: ghcr.io/cropgeeks/tomcat:9-jdk11
 
       # tomcat/10-jdk17
       - name: build/push (tomcat/10-jdk17)
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: tomcat/10-jdk17
           platforms: linux/amd64
           push: true
-          tags: cropgeeks/tomcat:10-jdk17
+          tags: ghcr.io/cropgeeks/tomcat:10-jdk17
