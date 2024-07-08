@@ -62,6 +62,12 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: tomcat/10-jdk17
+
+      # httpd-with-perl/rocky8
+      - name: build/push (httpd-with-perl/rocky8)
+        uses: docker/build-push-action@v3
+        with:
+          context: httpd-with-perl/rocky8
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/cropgeeks/tomcat:10-jdk17
+          tags: ghcr.io/cropgeeks/httpd-with-perl:rocky8
