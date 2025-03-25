@@ -66,6 +66,15 @@ jobs:
           push: true
           tags: ghcr.io/cropgeeks/tomcat:10-jdk17
 
+      # tomcat/10-jdk21
+      - name: build/push (tomcat/10-jdk21)
+        uses: docker/build-push-action@v3
+        with:
+          context: tomcat/10-jdk21
+          platforms: linux/amd64
+          push: true
+          tags: ghcr.io/cropgeeks/tomcat:10-jdk21
+
       # httpd-with-perl/rocky8
       - name: build/push (httpd-with-perl/rocky8)
         uses: docker/build-push-action@v3
