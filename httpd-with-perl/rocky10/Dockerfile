@@ -3,7 +3,6 @@ FROM rockylinux:10
 RUN dnf -y update && \
     dnf -y install \
         httpd \
-        mod_ssl \
         perl \
         perl-CGI \
         perl-DBI \
