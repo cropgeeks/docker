@@ -6,7 +6,8 @@ RUN dnf -y update && \
         perl \
         perl-CGI \
         perl-DBI \
-        perl-DBD-MySQL && \
+        perl-DBD-MySQL \
+		perl-GD && \
     dnf clean all
 
 RUN echo "ServerTokens Prod" >> /etc/httpd/conf/httpd.conf

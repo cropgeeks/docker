@@ -37,13 +37,13 @@ jobs:
           push: true
           tags: ghcr.io/cropgeeks/httpd-tls:rocky8
 
-      - name: Build/push (httpd-with-perl/rocky10)
+      - name: Build/push (lindamp)
         uses: docker/build-push-action@v7
         with:
-          context: ./httpd-with-perl/rocky10
+          context: ./lindamp
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/cropgeeks/httpd-with-perl:rocky10
+          tags: ghcr.io/cropgeeks/lindamp
 
   del_runs:
     runs-on: ubuntu-latest
