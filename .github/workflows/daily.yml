@@ -39,6 +39,15 @@ jobs:
           push: true
           tags: ghcr.io/cropgeeks/httpd-tls:rocky8
       
+      # httpd-with-perl:2.4
+      - name: build/push (httpd-with-perl:2.4)
+        uses: docker/build-push-action@v3
+        with:
+          context: httpd-with-perl:2.4
+          platforms: linux/amd64
+          push: true
+          tags: ghcr.io/cropgeeks/httpd-with-perl:2.4
+      
   del_runs:
     runs-on: ubuntu-latest
     steps:
