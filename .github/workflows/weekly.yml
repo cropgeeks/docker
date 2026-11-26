@@ -29,15 +29,6 @@ jobs:
 
       # Build and push Docker image with Buildx
       # https://github.com/docker/build-push-action
-
-      # httpd/rocky8
-      - name: build/push (httpd:rocky8)
-        uses: docker/build-push-action@v3
-        with:
-          context: httpd/rocky8
-          platforms: linux/amd64
-          push: true
-          tags: ghcr.io/cropgeeks/httpd:rocky8
       
       # tomcat/8-jre8
       - name: build/push (tomcat/8-jre8)

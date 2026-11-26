@@ -1,6 +1,3 @@
-FROM cropgeeks/tomcat:9-jre11
+FROM tomcat:9-jre11
 
-RUN apt-get update
-RUN apt-get install -y r-base
-
-COPY flapjack-services-20170726.war /usr/local/tomcat/webapps/
+RUN apt-get update && apt-get install -y r-base
