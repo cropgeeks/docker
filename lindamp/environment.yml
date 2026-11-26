@@ -3,6 +3,7 @@ channels:
   - bioconda
 
 dependencies:
+  - imagemagick
   - r-base
   - r-ggplot2
   - r-plotly
