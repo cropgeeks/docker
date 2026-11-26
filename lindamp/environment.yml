@@ -3,8 +3,8 @@ channels:
   - bioconda
 
 dependencies:
+  - blast-legacy=2.2.19
   - imagemagick
   - r-base
   - r-ggplot2
   - r-plotly
-  - blast-legacy=2.2.19
