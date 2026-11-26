@@ -63,7 +63,7 @@ jobs:
           context: ./flapjack-ws/9-jre11
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/cropgeeks/flapjack-ws/9-jre11
+          tags: ghcr.io/cropgeeks/flapjack-ws:9-jre11
 
   del_runs:
     runs-on: ubuntu-latest
