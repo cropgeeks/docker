@@ -7,4 +7,4 @@ dependencies:
   - r-base
   - r-ggplot2
   - r-plotly
-  - blast
+  - blast-legacy=2.2.19
