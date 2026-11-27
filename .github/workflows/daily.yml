@@ -56,15 +56,6 @@ jobs:
           push: true
           tags: ghcr.io/cropgeeks/lindamp
       
-      # flapjack-ws/9-jre11
-      - name: Build/push (flapjack-ws/9-jre11)
-        uses: docker/build-push-action@v7
-        with:
-          context: ./flapjack-ws/9-jre11
-          platforms: linux/amd64
-          push: true
-          tags: ghcr.io/cropgeeks/flapjack-ws:9-jre11
-
   del_runs:
     runs-on: ubuntu-latest
 
